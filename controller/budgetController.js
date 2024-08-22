@@ -18,7 +18,6 @@ const getBudgetController = async(req, res) => {
     try{
         const budget = await Budget.find().populate('expenses').sort({ createdAt: -1 });
         if(budget){
-            console.log(budget)
             res.send(budget)
         }else{
             res.send({status:false})
@@ -29,7 +28,6 @@ const getBudgetController = async(req, res) => {
 }
 const getSelectedBudget = async(req, res) => {
     const { budgetId } = req.params;
-    console.log(budgetId);
     try{
         const budget = await Budget.findOne({_id:budgetId}).populate('expenses');
         if(budget){

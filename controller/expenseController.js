@@ -3,7 +3,6 @@ import Budget from "../model/budgetModel.js";
 
 const addExpense = async(req, res) => {
     const budgetId = req.params.budgetId;
-    console.log(budgetId)
     try{    
         const result = new Expense(req.body);
         const newExpense = await result.save();
